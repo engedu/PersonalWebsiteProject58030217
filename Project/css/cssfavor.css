@@ -1,0 +1,268 @@
+:root {
+  --container-bg-color: #333;
+  --left-bg-color: rgba(223, 39, 39, 0.7);
+  --left-button-hover-color: rgba(161, 11, 11, 0.3);
+  --right-bg-color: rgba(43, 43, 43, 0.8);
+  --right-button-hover-color: rgba(92, 92, 92, 0.3);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
+}
+
+html, body {
+  padding:0;
+  margin:0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  
+}
+
+h1 {
+  font-size: 4rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  
+}
+
+.button {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  height: 2.5rem;
+  padding-top: 1.3rem;
+  width: 15rem;
+  text-align: center;
+  color: #fff;
+  border: #fff solid 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.split.left .button:hover {
+  background-color: var(--left-button-hover-color);
+  border-color: var(--left-button-hover-color);
+}
+
+.split.right .button:hover {
+  background-color: var(--right-button-hover-color);
+  border-color: var(--right-button-hover-color);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--container-bg-color);
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split.left {
+  left:0;
+  background: url('https://image.ibb.co/m56Czw/designer.jpg') center center no-repeat;
+  background-size: cover;
+}
+
+.split.left:before {
+  position:absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--left-bg-color);
+}
+
+.split.right {
+  right:0;
+  background: url('https://image.ibb.co/m3ZbRb/programmer.png') center center no-repeat;
+  background-size: cover;
+}
+
+.split.right:before {
+  position:absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--right-bg-color);
+}
+
+.split.right:hover{
+  transform: scale(1.1,1.1);
+}
+.split.left:hover{
+  transform: scale(1.1,1.1);
+}
+
+nav {
+  width: 100%;
+  background: #000;
+  height: 70px;
+  position: static;
+  z-index: 1;
+  text-decoration:none;
+}
+
+nav #brand {
+  float: left;
+  display: block;
+  margin-left: 84px;
+  font-size: 30px;
+  line-height: 2.5;
+  font-weight: bold;
+}
+
+nav #brand a {
+  color: #fff;
+  transition: all 0.3s ease-out;
+  font-family: "Poppins";
+  font-weight: 300;
+  text-decoration:none;
+}
+
+nav #menu {
+  float: right;
+  
+  position: relative;
+}
+
+nav #menu li {
+  display: inline-block;
+  padding: 0px 30px;
+  cursor: pointer;
+  line-height: 2.5;
+  position: relative;
+  transition: all 0.3s ease-out;
+}
+
+nav #menu li a {
+  color: #fff;
+  font-family: "Poppins";
+  font-weight: 200;
+  text-decoration:none;
+}
+
+#toggle {
+  position: absolute;
+  right: 20px;
+  top: 14px;
+  z-index: 999;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  float: right;
+  transition: all 0.3s ease-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#toggle .span {
+  height: 3px;
+  background: #fff;
+  transition: all 0.3s ease-out;
+  backface-visibility: hidden;
+  margin: 5px auto;
+}
+
+#toggle.on #one {
+  transform: rotate(45deg) translateX(2px) translateY(4px);
+}
+
+#toggle.on #two {
+  opacity: 0;
+}
+
+#toggle.on #three {
+  transform: rotate(-45deg) translateX(8px) translateY(-10px);
+}
+
+#resize {
+  z-index: 1;
+  top: 0px;
+  position: absolute;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s ease-out;
+  display: table;
+}
+
+#resize #menu {
+  height: 90px;
+  display: table-cell;
+  vertical-align: center;
+}
+
+#resize #menu li {
+  display: block;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 50px;
+  min-height: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+#resize li:nth-child(1) {
+  margin-top:140px;
+}
+
+#resize #menu li a {
+  color: #fff;
+}
+
+#resize.active {
+  visibility: visible;
+  opacity: 0.99;
+}
+@media(max-width: 768px) {
+  #toggle {
+        visibility: visible;
+        opacity: 1;
+        margin-top: 6px;
+  }
+
+  nav #brand {
+        margin-left: 18px;
+  }
+
+  #menu a {
+        font-family: "Poppins";
+        font-weight: 200;
+        font-size: 20px;
+  }
+
+  nav #menu {
+        display: none;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+
+  .button {
+    width: 12rem;
+    top: 70%;
+  }
+}
+
+@media(min-width: 768px) {
+  #resize {
+        visibility: hidden !important;
+  }
+}
