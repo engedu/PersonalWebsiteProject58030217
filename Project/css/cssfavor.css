@@ -74,8 +74,9 @@ h1 {
 
 .split.left {
   left:0;
-  background: url('https://image.ibb.co/m56Czw/designer.jpg') center center no-repeat;
+  background: url('/Project/images/pic5.jpg') center center no-repeat;
   background-size: cover;
+
 }
 
 .split.left:before {
@@ -88,7 +89,7 @@ h1 {
 
 .split.right {
   right:0;
-  background: url('https://image.ibb.co/m3ZbRb/programmer.png') center center no-repeat;
+  background: url('/Project/images/family/family4.jpg') center center no-repeat;
   background-size: cover;
 }
 
@@ -246,6 +247,7 @@ nav #menu li a {
         font-family: "Poppins";
         font-weight: 200;
         font-size: 20px;
+        text-decoration:none;
   }
 
   nav #menu {
